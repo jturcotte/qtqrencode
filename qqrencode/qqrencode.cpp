@@ -247,10 +247,14 @@ bool QQREncode::toSVG(QString output, int size)
 QImage QQREncode::toQImage(int size)
 {
     Q_D(QQREncode);
-    if (size < 0) throw std::invalid_argument("Invalid size");
+    if (size < 0) {
+        qWarning() << "QQREncode::toQImage: Invalid size";
+        return QImage();
+    }
 
     if (d->m_code == NULL) {
-        std::logic_error("No qr code to convert");
+        qWarning() << "QQREncode::toQImage: No qr code to convert";
+        return QImage();
     }
 
     int symwidth = d->m_code->width + d->m_margin * 2;
