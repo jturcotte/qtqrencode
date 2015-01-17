@@ -14,6 +14,3 @@ INSTALLS += header_files
   target.path = /usr/lib
   INSTALLS += target
 }
-
-INCLUDEPATH += $$PWD/../lib/qrencode/include
-DEPENDPATH += $$PWD/../lib/qrencode/include
